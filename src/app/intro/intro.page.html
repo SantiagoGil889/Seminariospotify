@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="titulo">
+      <h1 class="slogan">Tu mundo musical comienza aquí 🎧</h1>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-button class="home" (click)="goBack()">Home</ion-button>
+
+<ion-content class="welcome-content">
+  <div class="welcome-container">
+    <ion-title size="large" class="welcome-title">¡Explora géneros que te inspiran!</ion-title>
+    <p class="welcome-text">
+      Explorá una experiencia musical única donde los géneros, artistas y sonidos de todo el mundo se encuentran en un solo lugar. Descubrí nuevas tendencias, reviví clásicos inolvidables y sumergite en la esencia de la música que te mueve.
+      <strong>PCA Music</strong> es tu espacio para sentir, explorar y vivir la música a tu manera.
+    </p>
+
+    <!-- Slides de géneros -->
+    <swiper-container
+      class="genre-swiper"
+      pagination="true"
+      loop="true"
+      slides-per-view="1"
+    >
+      <swiper-slide *ngFor="let genre of genres">
+        <div class="slide-content">
+          <img [src]="genre.image" [alt]="genre.tittle" />
+        </div>
+      </swiper-slide>
+    </swiper-container>
+    <!-- Finaliza el Slides de géneros -->
+
+    <!-- Descripción final -->
+    <div class="bottom-description">
+      <h3>Descubre tu estilo musical</h3>
+      <p>Desde ritmos clásicos hasta sonidos modernos, hay un género para cada emoción. Dejá que la música hable por vos. 🎵</p>
+    </div>
+
+  </div>
+</ion-content>

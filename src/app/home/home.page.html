@@ -1,14 +1,37 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
+  <div class="titulo">
+    <h2>PCA Music</h2>
+  </div>
 </ion-header>
 
+<ion-button class="intro" (click)="goIntro()">Intro </ion-button>
+
+
 <ion-content>
-  <swiper-container>
-  <swiper-slide>Slide 1</swiper-slide>
-  <swiper-slide>Slide 2</swiper-slide>
-  <swiper-slide>Slide 3</swiper-slide>
+  <swiper-container
+  pagination="true"
+  loop="true"
+  slides-per-view="1"  
+  [ngStyle]="{'background-color': colorActual, 'color': textoActual}"    
+>
+  <swiper-slide *ngFor="let genre of genres" [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
+    <div class="slide-content" [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
+      <h2>{{ genre.tittle }}</h2>
+      <img [src]="genre.image" [alt] ="genre.tittle">
+      <p class="slide-content" [ngStyle]="{'background-color': colorActual, 'color': textoActual}">{{ genre.description }} </p>
+    </div>
+  </swiper-slide>
 </swiper-container>
+
+<div class="divboton">
+  <ion-button class="tema" (click)="cambiarColor()">Cambiar Tema </ion-button>
+</div>
+
+<!-- Demo de storage -->
+ <div class="temaactual">
+   <div [style.backfround-color]="colorActual"> 
+    <p>Tema Actual: {{ colorActual === colorOscuro ? 'Oscuro' : 'Claro' }}</p>
+  </div>
+ </div>
+
+</ion-content>

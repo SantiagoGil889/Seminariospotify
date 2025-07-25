@@ -1,27 +1,78 @@
-#container {
+//Slides y titulo
+
+.slide-content {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  padding: 10px;
+  background-color: var(--tema-claro-fondo);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.slide-content img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin: 2%;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
+.slide-content h2 {
   margin: 0;
+  font-size: 29px;
+  color: #70a807
 }
 
-#container a {
-  text-decoration: none;
+.slide-content p {
+  font-size: 17px;
+  color: var(--tema-claro-texto);
+  text-align: justify;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+//Custom Properties
+
+.card{
+  padding: var(--espaciado-grande);
+  background-color: var(--color-claro);
+}
+
+.bg-card-test{
+  background: rgb(223, 66, 66);
+
+}
+
+//Fondo del boton del tema oscuro y claro
+
+.divboton {
+  display: flex;
+  justify-content: left;  // Centrado horizontal
+  margin-top: 3px;         // Separación opcional
+  margin-left: 15px;
+}
+
+.temaactual{
+  justify-content: left;
+  margin-top: 3px;  
+  margin-left: 22px;
+}
+
+.tema {
+  --background: #333333;    // Fondo gris oscuro
+  --color: #ffffff;         // Texto blanco
+  --border-radius: 8px;
+  --padding-start: 24px;
+  --padding-end: 24px;
+}
+
+.intro {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  --background: #000000;
+  --color: rgb(255, 255, 255);
+  --border-radius: 8px;
 }
