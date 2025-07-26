@@ -1,0 +1,109 @@
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-default-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none; // elimina borde verde
+  }
+}
+
+ion-title {
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.form-container {
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  // Centra horizontalmente todos los elementos
+  margin-bottom: 15px;
+  text-align: center;
+
+  label {
+    color: white;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  ion-input {
+    --background: transparent;
+    --highlight-color-focused: transparent; // quita línea verde al enfocar
+    --highlight-color-invalid: transparent;
+    color: white;
+    border: none;
+    border-bottom: 1px solid gray; // puedes quitarlo también si no lo quieres
+    padding: 8px 5px;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.login-button {
+  --background: #0d9b19;
+  --color: #ffffff;
+  width: 100%;
+  text-transform: none;
+  font-size: 20px;
+}
+
+.custom-success-alert .alert-wrapper {
+  --background: #d4edda;
+  color: #155724;
+  font-weight: bold;
+}
+
+.custom-danger-alert .alert-wrapper {
+  --background: #f8d7da;
+  color: #721c24;
+  font-weight: bold;
+}
