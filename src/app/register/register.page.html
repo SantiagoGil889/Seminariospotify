@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-container">
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+
+      <ion-item>
+        <ion-input formControlName="nombre" placeholder="Nombre" label="Nombre:"></ion-input>
+      </ion-item>
+      <div *ngIf="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched" class="error">
+        {{ validation_messages.nombre[0].message }}
+      </div>
+
+      <ion-item>
+        <ion-input formControlName="apellido" placeholder="Apellido" label="Apellido:"></ion-input>
+      </ion-item>
+      <div *ngIf="registerForm.get('apellido')?.invalid && registerForm.get('apellido')?.touched" class="error">
+        {{ validation_messages.apellido[0].message }}
+      </div>
+
+      <ion-item>
+        <ion-input type="email" formControlName="email" placeholder="email@dominio.com" label="Email:"></ion-input>
+      </ion-item>
+      <div *ngFor="let val of validation_messages.email">
+        <div *ngIf="registerForm.get('email')?.hasError(val.type) && registerForm.get('email')?.touched" class="error">
+          {{ val.message }}
+        </div>
+      </div>
+
+      <ion-item>
+        <ion-input type="password" formControlName="password" placeholder="********" label="Contraseña:"></ion-input>
+      </ion-item>
+      <div *ngFor="let val of validation_messages.password">
+        <div *ngIf="registerForm.get('password')?.hasError(val.type) && registerForm.get('password')?.touched" class="error">
+          {{ val.message }}
+        </div>
+      </div>
+
+      <ion-button expand="block" type="submit" [disabled]="!registerForm.valid" color="success">
+        Registrarse
+      </ion-button>
+
+      <ion-button expand="block" fill="clear" color="medium" (click)="goToLogin()">
+        ¿Ya tienes cuenta? Inicia sesión
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

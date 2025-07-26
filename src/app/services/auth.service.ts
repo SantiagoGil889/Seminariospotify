@@ -19,4 +19,20 @@ export class AuthService {
       }
     });
   }
+
+  registerUser(data: any): Promise<{ status: string; message: string }> {
+    return new Promise((resolve, reject) => {
+      if (data.email === 'duplicado@email.com') {
+        resolve({ status: 'error', message: 'El correo ya está registrado' });
+      }
+
+      if (data.email && data.password && data.nombre && data.apellido) {
+        resolve({ status: 'accept', message: 'Registro exitoso' });
+      } else {
+        resolve({ status: 'error', message: 'Datos incompletos' });
+      }
+    });
+  }
+
+
 }

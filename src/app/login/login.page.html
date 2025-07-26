@@ -22,7 +22,7 @@
       ></ion-input>
     </ion-item>
 
-    <div *ngFor="let validation of validation_messages.email">
+    <div *ngFor="let validation of validation_messages.email" class="text-center">
       <div 
         *ngIf="loginForm.get('email')?.hasError(validation.type) && loginForm.get('email')?.dirty"
         class="error-message"
@@ -41,7 +41,7 @@
       ></ion-input>
     </ion-item>
 
-    <div *ngFor="let validation of validation_messages.password">
+    <div *ngFor="let validation of validation_messages.password" class="text-center">
       <div 
         *ngIf="loginForm.get('password')?.hasError(validation.type) && loginForm.get('password')?.dirty"
         class="error-message"
@@ -56,6 +56,14 @@
         Ingresar
       </ion-button>
     </div>
+
+    <!-- Botón de registro -->
+
+  <ion-button expand="block" fill="clear" color="medium" (click)="goToRegister()">
+  ¿No tienes cuenta? Regístrate aquí
+  </ion-button>
+
+
 
   </form>
 </ion-content>

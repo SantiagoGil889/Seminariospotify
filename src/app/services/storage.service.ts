@@ -5,56 +5,48 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root'
 })
 export class StorageService {
-  private _storage: Storage | null = null
-  constructor(private storage: Storage) {
-    this.init();
-}
+  private _storage: Storage | null = null;
 
-async init () {
-  const storage = await this.storage.create();
-  this._storage = storage
-}
+  constructor(private storage: Storage) {}
 
-private async ready(){
-  if (!this._storage){
-    await this.init();
+  // Inicialización debe ser llamada manualmente desde donde se necesite
+  public async init() {
+    this._storage = await this.storage.create();
   }
-}
 
-// Setea datos en el storage
+  private async ready(): Promise<void> {
+    if (!this._storage) {
+      await this.init();
+    }
+  }
 
-public async set(key: string, value: any){
-  await this.ready();
-  return this._storage?.set(key, value);
-}
+  public async set(key: string, value: any): Promise<void> {
+    await this.ready();
+    await this._storage?.set(key, value);
+  }
 
-//Obtiene datos del storage
+  public async get<T = any>(key: string): Promise<T | null> {
+    await this.ready();
+    return this._storage?.get(key) ?? null;
+  }
 
-public async get(key: string){
-  await this.ready();
-  return this._storage?.get(key);
-}
+  public async remove(key: string): Promise<void> {
+    await this.ready();
+    await this._storage?.remove(key);
+  }
 
-public async remove(key: string){
-  await this.ready();
-  return this._storage?.remove(key);
-}
+  public async clear(): Promise<void> {
+    await this.ready();
+    await this._storage?.clear();
+  }
 
-public async clear(){
-  await this.ready();
-  return this._storage?.clear();
-}
+  public async keys(): Promise<string[] | undefined> {
+    await this.ready();
+    return this._storage?.keys();
+  }
 
-public async keys(){
-  await this.ready();
-  return this._storage?.keys();
-}
-
-public async length(){
-  await this.ready();
-  return this._storage?.length();
-}
-
-
-
+  public async length(): Promise<number | undefined> {
+    await this.ready();
+    return this._storage?.length();
+  }
 }

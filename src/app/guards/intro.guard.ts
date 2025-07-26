@@ -13,15 +13,29 @@ export class IntroGuard implements CanActivate {
   ) {}
 
   async canActivate(): Promise<boolean> {
-    const isLoggedIn = await this.storageService.get('isLoggedIn');
+    try {
+      // ⚠️ Asegurar que el storage esté listo
+      await this.storageService.init();
 
-    if (!isLoggedIn) {
-      // Si el usuario no está autenticado, lo redirige al login
+      const isLoggedIn = !!(await this.storageService.get('isLoggedIn'));
+      const introSeen = !!(await this.storageService.get('introSeen'));
+
+      if (!isLoggedIn) {
+        this.router.navigateByUrl('/login');
+        return false;
+      }
+
+      if (!introSeen) {
+        this.router.navigateByUrl('/intro');
+        return false;
+      }
+
+      return true;
+
+    } catch (error) {
+      console.error('Error en IntroGuard:', error);
       this.router.navigateByUrl('/login');
       return false;
     }
-
-    // Si está autenticado, permite el acceso
-    return true;
   }
 }

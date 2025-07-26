@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -50,7 +50,7 @@ genres = [
   }
   ]
 
-constructor(private storageService: StorageService, private router: Router) {}
+constructor(private storageService: StorageService, private router: Router, private navCtrl: NavController) {}
 
   ngOnInit() {
   }
@@ -62,5 +62,13 @@ constructor(private storageService: StorageService, private router: Router) {}
     this.storageService.set("home",true)
 
   }
+
+  // intro.page.ts
+
+async continuar() {
+  await this.storageService.set('introSeen', true);
+  this.navCtrl.navigateRoot('/menu/home');
+}
+
 
 }
