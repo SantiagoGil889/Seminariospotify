@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { Router } from '@angular/router';
-
+import { MusicService } from '../services/music.service';
+import { albums } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -48,11 +49,31 @@ export class HomePage implements OnInit {
     description: "El reguetón urbano es el ritmo que revolucionó la música latina, combinando beats pegajosos, letras atrevidas y una energía contagiosa que domina pistas de baile en todo el mundo. Nacido en las calles de Puerto Rico, ha evolucionado con artistas como Daddy Yankee, Don Omar, Wisin & Yandel, y ha sido renovado por nuevas generaciones como Bad Bunny, J Balvin, Rauw Alejandro y Karol G, llevando el género a una escala global sin perder su esencia callejera."
   }
   ]
-  constructor(private storageService: StorageService, private router: Router) {}
+
+  tracks: any;
+  albums: any;
+
+  constructor(private storageService: StorageService, private router: Router, private musicService: MusicService) {}
 
   async ngOnInit()  {
+    this.loadTracks();
+    this.loadAlbums();
     await this.loadStorageData();
-    this.simularCargaDatos(); 
+    this.simularCargaDatos();   
+  }
+
+  loadTracks(){
+    this.musicService.getTracks().then(tracks => {
+      this.tracks = tracks;
+      console.log(this.tracks, "Las canciones");  
+    })
+  }
+
+  loadAlbums(){
+    this.musicService.getAlbums().then(albums => {
+      this.albums = albums;
+      console.log(this.albums, "Los Albums mas escuchados");  
+    })
   }
 
   async cambiarColor() {

@@ -26,6 +26,23 @@
   </swiper-slide>
 </swiper-container>
 
+<!-- Swiper de albums -->
+
+<swiper-container
+  pagination="true"
+  loop="true"
+  slides-per-view="3"
+  [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
+  <swiper-slide *ngFor="let album of albums"
+    [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
+    <div class="slide-content"
+      [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
+      <img [src]="album.image" [alt]="album.name">
+      <h4>{{ album.name }}</h4>
+    </div>
+  </swiper-slide>
+</swiper-container>
+
 <div class="divboton">
   <ion-button class="tema" (click)="cambiarColor()">Cambiar Tema </ion-button>
 </div>
@@ -35,6 +52,7 @@
    <div [style.backfround-color]="colorActual"> 
     <p>Tema Actual: {{ colorActual === colorOscuro ? 'Oscuro' : 'Claro' }}</p>
   </div>
- </div>
+</div>
+
 
 </ion-content>

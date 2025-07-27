@@ -20,13 +20,13 @@ export class IntroGuard implements CanActivate {
       const isLoggedIn = !!(await this.storageService.get('isLoggedIn'));
       const introSeen = !!(await this.storageService.get('introSeen'));
 
-      if (!isLoggedIn) {
-        this.router.navigateByUrl('/login');
+      if (!introSeen) {
+        this.router.navigateByUrl('/intro');
         return false;
       }
 
-      if (!introSeen) {
-        this.router.navigateByUrl('/intro');
+      if (!isLoggedIn) {
+        this.router.navigateByUrl('/login');
         return false;
       }
 
