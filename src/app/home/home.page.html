@@ -33,12 +33,30 @@
   loop="true"
   slides-per-view="3"
   [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
-  <swiper-slide *ngFor="let album of albums"
-    [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
+  <swiper-slide *ngFor="let album of albums" 
+    [ngStyle]="{'background-color': colorActual, 'color': textoActual}" (click)="showSongs(album.id)">
     <div class="slide-content"
       [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
       <img [src]="album.image" [alt]="album.name">
       <h4>{{ album.name }}</h4>
+    </div>
+  </swiper-slide>
+</swiper-container>
+
+<!-- Swiper de artistas -->
+<swiper-container
+  pagination="true"
+  loop="true"
+  slides-per-view="3"
+  [ngStyle]="{ 'background-color': colorActual, 'color': textoActual }"
+>
+  <swiper-slide *ngFor="let artist of artists.artists"
+    [ngStyle]="{ 'background-color': colorActual, 'color': textoActual }"
+    (click)="showArtistModal(artist)">
+    <div class="slide-content"
+      [ngStyle]="{ 'background-color': colorActual, 'color': textoActual }">
+      <img [src]="getArtistImage(artist.nombre)" [alt]="artist.nombre">
+      <h4>{{ artist.nombre }}</h4>
     </div>
   </swiper-slide>
 </swiper-container>

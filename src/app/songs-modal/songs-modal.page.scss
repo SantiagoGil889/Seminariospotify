@@ -1,0 +1,76 @@
+ion-item {
+  --background: #1e1e1e;
+  color: rgb(255, 255, 255);
+  margin-bottom: 4px;
+  border-radius: 8px;
+}
+
+ion-avatar {
+  background-color: #4d4d4d;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #000000;
+}
+
+.index {
+  font-weight: bold;
+  text-align: center;
+}
+
+ion-fab-button {
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.tituloalbum{
+    font-size: 25px;
+}
+
+.tituloalbum {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+}
+
+.album-image-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+  background-color: #1e1e1e;
+}
+
+.album-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para el número de la canción */
+.index {
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Fondo oscuro para ítems */
+ion-item {
+  --background: #2b2b2b;
+  color: white;
+  border-bottom: 1px solid #444;
+}
+
+/* Estilo del título de la canción */
+ion-label h2 {
+  font-size: 1rem;
+  font-weight: 500;
+}

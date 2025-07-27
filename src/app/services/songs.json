@@ -1,0 +1,124 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "name": "Adán y Eva",
+      "artist": "Paulo Londra",
+      "preview_url": "https://p.scdn.co/mp3-preview/paulo1.mp3"
+    },
+    {
+      "id": 2,
+      "name": "Nena Maldición",
+      "artist": "Paulo Londra",
+      "preview_url": "https://p.scdn.co/mp3-preview/paulo2.mp3"
+    },
+    {
+      "id": 3,
+      "name": "Días Nuestros",
+      "artist": "Andrés Cepeda",
+      "preview_url": "https://p.scdn.co/mp3-preview/cepeda1.mp3"
+    },
+    {
+      "id": 4,
+      "name": "Por el resto de mi vida",
+      "artist": "Andrés Cepeda",
+      "preview_url": "https://p.scdn.co/mp3-preview/cepeda2.mp3"
+    },
+    {
+      "id": 5,
+      "name": "Bipolar",
+      "artist": "C.R.O",
+      "preview_url": "https://p.scdn.co/mp3-preview/cro1.mp3"
+    },
+    {
+      "id": 6,
+      "name": "Cuentos",
+      "artist": "C.R.O",
+      "preview_url": "https://p.scdn.co/mp3-preview/cro2.mp3"
+    },
+    {
+      "id": 7,
+      "name": "A Mí",
+      "artist": "Rels B",
+      "preview_url": "https://p.scdn.co/mp3-preview/relsb1.mp3"
+    },
+    {
+      "id": 8,
+      "name": "Cómo Dormiste?",
+      "artist": "Rels B",
+      "preview_url": "https://p.scdn.co/mp3-preview/relsb2.mp3"
+    },
+    {
+      "id": 9,
+      "name": "Toy En El Mic",
+      "artist": "Milo J",
+      "preview_url": "https://p.scdn.co/mp3-preview/miloj1.mp3"
+    },
+    {
+      "id": 10,
+      "name": "Rara Vez",
+      "artist": "Milo J",
+      "preview_url": "https://p.scdn.co/mp3-preview/miloj2.mp3"
+    },
+    {
+      "id": 11,
+      "name": "Mírame",
+      "artist": "3AM",
+      "preview_url": "https://p.scdn.co/mp3-preview/3am1.mp3"
+    },
+    {
+      "id": 12,
+      "name": "Solita",
+      "artist": "3AM",
+      "preview_url": "https://p.scdn.co/mp3-preview/3am2.mp3"
+    },
+    {
+      "id": 13,
+      "name": "A Mi Lado",
+      "artist": "Dani Ribba",
+      "preview_url": "https://p.scdn.co/mp3-preview/daniribba1.mp3"
+    },
+    {
+      "id": 14,
+      "name": "Déjame Solo",
+      "artist": "Dani Ribba",
+      "preview_url": "https://p.scdn.co/mp3-preview/daniribba2.mp3"
+    },
+    {
+      "id": 15,
+      "name": "Mamichula",
+      "artist": "Trueno",
+      "preview_url": "https://p.scdn.co/mp3-preview/trueno1.mp3"
+    },
+    {
+      "id": 16,
+      "name": "Dance Crip",
+      "artist": "Trueno",
+      "preview_url": "https://p.scdn.co/mp3-preview/trueno2.mp3"
+    },
+    {
+      "id": 17,
+      "name": "Mbappe",
+      "artist": "Eladio Carrión",
+      "preview_url": "https://p.scdn.co/mp3-preview/eladio1.mp3"
+    },
+    {
+      "id": 18,
+      "name": "Tata",
+      "artist": "Eladio Carrión",
+      "preview_url": "https://p.scdn.co/mp3-preview/eladio2.mp3"
+    },
+    {
+      "id": 19,
+      "name": "Calentón",
+      "artist": "Mora",
+      "preview_url": "https://p.scdn.co/mp3-preview/mora1.mp3"
+    },
+    {
+      "id": 20,
+      "name": "Memorias",
+      "artist": "Mora",
+      "preview_url": "https://p.scdn.co/mp3-preview/mora2.mp3"
+    }
+  ]
+}

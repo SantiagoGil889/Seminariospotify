@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { Router } from '@angular/router';
 import { MusicService } from '../services/music.service';
-import { albums } from 'ionicons/icons';
+import { SongsModalPage } from '../songs-modal/songs-modal.page';
+import { ArtistModalPage } from '../artist-modal/artist-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -14,19 +15,15 @@ import { albums } from 'ionicons/icons';
   imports: [IonicModule, CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-
-
 export class HomePage implements OnInit {
 
-  colorClaro = 'var(--tema-claro-fondo';
+  colorClaro = 'var(--tema-claro-fondo)';
   colorOscuro = 'var(--tema-oscuro-fondo)';
   colorTextoClaro = 'var(--tema-claro-texto)';
   colorTextoOscuro = 'var(--tema-oscuro-texto)';
   colorActual = this.colorClaro;
   textoActual = this.colorTextoClaro;
-  
-  // #1: Agregar información de 3 slides para mostrar en la vista
-  // #2: Cambiar el tema del color de los slide
+
   genres = [
   {
     tittle:"Hip-Hop / Rap Argentino",
@@ -52,73 +49,126 @@ export class HomePage implements OnInit {
 
   tracks: any;
   albums: any;
+  artists: any;
 
-  constructor(private storageService: StorageService, private router: Router, private musicService: MusicService) {}
+  constructor(
+    private storageService: StorageService,
+    private router: Router,
+    private musicService: MusicService,
+    private modalCtrl: ModalController
+  ) {}
 
-  async ngOnInit()  {
+  async ngOnInit() {
+    this.getLocalArtists();
     this.loadTracks();
     this.loadAlbums();
     await this.loadStorageData();
-    this.simularCargaDatos();   
+    this.simularCargaDatos();
   }
 
-  loadTracks(){
+  loadTracks() {
     this.musicService.getTracks().then(tracks => {
       this.tracks = tracks;
-      console.log(this.tracks, "Las canciones");  
-    })
+      console.log(this.tracks, "Las canciones");
+    });
   }
 
-  loadAlbums(){
+  loadAlbums() {
     this.musicService.getAlbums().then(albums => {
       this.albums = albums;
-      console.log(this.albums, "Los Albums mas escuchados");  
-    })
+      console.log(this.albums, "Los Albums mas escuchados");
+    });
   }
 
   async cambiarColor() {
-  const esClaro = this.colorActual === this.colorClaro;
-  this.colorActual = esClaro ? this.colorOscuro : this.colorClaro;
-  this.textoActual = esClaro ? this.colorTextoOscuro : this.colorTextoClaro;
-  await this.storageService.set('theme',this.colorActual)
-  await this.storageService.set('textColor', this.textoActual);
-  console.log('Tema Guardado: ', this.colorActual, 'Texto:', this.textoActual)
+    const esClaro = this.colorActual === this.colorClaro;
+    this.colorActual = esClaro ? this.colorOscuro : this.colorClaro;
+    this.textoActual = esClaro ? this.colorTextoOscuro : this.colorTextoClaro;
+    await this.storageService.set('theme', this.colorActual);
+    await this.storageService.set('textColor', this.textoActual);
+    console.log('Tema Guardado: ', this.colorActual, 'Texto:', this.textoActual);
   }
 
-  async loadStorageData(){
+  async loadStorageData() {
     const savedTheme = await this.storageService.get('theme');
     const savedTextColor = await this.storageService.get('textColor');
 
-    if (savedTheme){
+    if (savedTheme) {
       this.colorActual = savedTheme;
     }
     if (savedTextColor) {
-    this.textoActual = savedTextColor;
+      this.textoActual = savedTextColor;
     }
   }
 
-  //Promesas
-  async simularCargaDatos(){
+  async simularCargaDatos() {
     const data = await this.obtenerDatosSimulados();
-    console.log('Datos simulados: ', data)
+    console.log('Datos simulados: ', data);
   }
 
   obtenerDatosSimulados() {
-  return new Promise<string[]>((resolve) => {
-    setTimeout(() => {
-      resolve(['Rock', 'Trap', 'Regueton']);
-    }, 1500);
+    return new Promise<string[]>((resolve) => {
+      setTimeout(() => {
+        resolve(['Rock', 'Trap', 'Regueton']);
+      }, 1500);
+    });
+  }
+
+  getLocalArtists() {
+    this.artists = this.musicService.getLocalArtists();
+    console.log(this.artists.artists);
+  }
+
+  async showSongs(albumId: string) {
+    console.log("album id: ", albumId);
+
+    const songs = await this.musicService.getSongsByAlbum(albumId);
+    const album = this.albums.find((a: any) => String(a.id) === String(albumId));
+    const albumName = album ? album.name : 'Álbum';
+    const albumImage = album ? album.image : '';
+
+    const modal = await this.modalCtrl.create({
+      component: SongsModalPage,
+      componentProps: {
+        songs: songs,
+        albumName: albumName,
+        albumImage: albumImage
+      }
+    });
+
+    await modal.present();
+  }
+
+  async showArtistModal(artist: any) {
+  console.log('Modal para el artista:', artist);
+
+  const songs = await this.musicService.getSongsByArtist(artist.nombre);
+  const artistName = artist.nombre || 'Artista';
+  const artistImage = this.getArtistImage(artist.nombre);
+
+  const modal = await this.modalCtrl.create({
+    component: ArtistModalPage,
+    componentProps: {
+      songs: songs,
+      artistName: artistName,
+      artistImage: artistImage
+    }
   });
-}
+
+    await modal.present();
+  }
+
+  
 
 
-  //Fin de promesas
+  getArtistImage(nombre: string): string {
+    const nombreFormateado = encodeURIComponent(nombre);
+    return `https://ui-avatars.com/api/?name=${nombreFormateado}&background=random`;
+  }
 
-
-  goIntro(){
+  goIntro() {
     console.log("Volver");
-    this.router.navigateByUrl("/intro")
-    this.storageService.remove("home")
-
+    this.router.navigateByUrl("/intro");
+    this.storageService.remove("home");
   }
 }

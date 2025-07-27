@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ artistName }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img [src]="artistImage" style="width: 100%; height: 200px; object-fit: cover;"></ion-img>
+
+  <ion-list *ngIf="songs && songs.length">
+    <ion-item *ngFor="let song of songs" (click)="openPreview(song.preview_url)">
+      <ion-label>
+        <h2>{{ song.name }}</h2>
+        <p>{{ song.artist }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="!songs || !songs.length" class="ion-padding">
+    No hay canciones disponibles para este artista.
+  </div>
+</ion-content>
