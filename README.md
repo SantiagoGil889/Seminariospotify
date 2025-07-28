@@ -18,13 +18,7 @@ La app permite explorar listas de reproducción, reproducir canciones y gestiona
 
 ## Instalación y configuración
 
-1. Clonar el repositorio:
-
-   ```bash
-   git clone https://github.com/tu-usuario/proyecto-spotify-clone.git
-   cd proyecto-spotify-clone
-
-2. Credenciales del login
+1. Credenciales del login
 
 Usuario: prueba@gmail.com  
 Contrasena: prueba1234
