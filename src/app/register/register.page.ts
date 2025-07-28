@@ -14,12 +14,12 @@ import { AuthService } from '../services/auth.service';
   imports: [CommonModule, FormsModule, ReactiveFormsModule, IonicModule]
 })
 export class RegisterPage implements OnInit {
-
   registerForm: FormGroup;
 
   validation_messages = {
     nombre: [{ type: 'required', message: 'El nombre es obligatorio.' }],
     apellido: [{ type: 'required', message: 'El apellido es obligatorio.' }],
+    userName: [{ type: 'required', message: 'El nombre de usuario es obligatorio.' }],
     email: [
       { type: 'required', message: 'El email es obligatorio.' },
       { type: 'email', message: 'El email no es válido.' }
@@ -40,6 +40,7 @@ export class RegisterPage implements OnInit {
     this.registerForm = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
+      userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -48,43 +49,67 @@ export class RegisterPage implements OnInit {
   ngOnInit() {}
 
   async registerUser() {
-  if (this.registerForm.valid) {
-    const credentials = this.registerForm.value;
+    if (this.registerForm.valid) {
+      const form = this.registerForm.value;
 
-    this.authService.registerUser(credentials).then(async res => {
-      if (res.status === 'accept') {
-        await this.storageService.set('userData', credentials);
-        await this.storageService.set('isLoggedIn', true); // <-- NECESARIO para pasar el guard
+      const userData = {
+        email: form.email,
+        password: form.password,
+        name: form.nombre,
+        username: form.userName,
+        last_name: form.apellido
+      };
+
+      try {
+        const response = await this.authService.registerUser(userData);
+        console.log('Respuesta del backend:', response);
+
+        // Si el backend responde correctamente con "user" o "success"
+        if (response.status==="OK") {
+          await this.storageService.set('userData', response.user || userData);
+          await this.storageService.set('isLoggedIn', true);
+
+          const alert = await this.alertCtrl.create({
+            header: 'Registro exitoso',
+            message: '¡Tu cuenta ha sido creada correctamente!',
+            buttons: ['OK']
+          });
+          await alert.present();
+          await alert.onDidDismiss();
+
+          this.navCtrl.navigateRoot('/login');
+        } else {
+          const alert = await this.alertCtrl.create({
+            header: 'Error en el registro',
+            message: response.message || 'No se pudo completar el registro.',
+            buttons: ['OK']
+          });
+          await alert.present();
+        }
+
+      } catch (error: any) {
+        console.error('Error al registrar:', error);
+
+        let errorMessage = 'Ocurrió un error inesperado.';
+
+        // Intentar extraer un mensaje más claro si es posible
+        if (error.message?.includes('422')) {
+          errorMessage = 'Ya existe un usuario con ese correo o nombre de usuario.';
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
 
         const alert = await this.alertCtrl.create({
-          header: 'Registro Exitoso',
-          message: 'Ya puedes iniciar sesión.',
-          buttons: ['OK']
-        });
-        await alert.present();
-        await alert.onDidDismiss();
-
-        this.navCtrl.navigateRoot('/login');
-      } else {
-        const alert = await this.alertCtrl.create({
-          header: 'Error',
-          message: res.message || 'No se pudo completar el registro.',
+          header: 'Fallo al registrar',
+          message: errorMessage,
           buttons: ['OK']
         });
         await alert.present();
       }
-    }).catch(async err => {
-      const alert = await this.alertCtrl.create({
-        header: 'Error',
-        message: err || 'Ocurrió un error inesperado.',
-        buttons: ['OK']
-      });
-      await alert.present();
-    });
+    }
   }
-}
 
   goToLogin() {
-    this.navCtrl.navigateBack('/login');
+    this.navCtrl.navigateRoot('/login');
   }
 }

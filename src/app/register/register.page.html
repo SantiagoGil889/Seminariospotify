@@ -8,22 +8,37 @@
   <div class="form-container">
     <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
 
+      <!-- Nombre -->
       <ion-item>
-        <ion-input formControlName="nombre" placeholder="Nombre" label="Nombre:"></ion-input>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre"></ion-input>
       </ion-item>
       <div *ngIf="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched" class="error">
         {{ validation_messages.nombre[0].message }}
       </div>
 
+      <!-- Apellido -->
       <ion-item>
-        <ion-input formControlName="apellido" placeholder="Apellido" label="Apellido:"></ion-input>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="apellido"></ion-input>
       </ion-item>
       <div *ngIf="registerForm.get('apellido')?.invalid && registerForm.get('apellido')?.touched" class="error">
         {{ validation_messages.apellido[0].message }}
       </div>
 
+      <!-- Nombre de usuario -->
       <ion-item>
-        <ion-input type="email" formControlName="email" placeholder="email@dominio.com" label="Email:"></ion-input>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input formControlName="userName"></ion-input>
+      </ion-item>
+      <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched" class="error">
+        {{ validation_messages.userName[0].message }}
+      </div>
+
+      <!-- Email -->
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
       <div *ngFor="let val of validation_messages.email">
         <div *ngIf="registerForm.get('email')?.hasError(val.type) && registerForm.get('email')?.touched" class="error">
@@ -31,8 +46,10 @@
         </div>
       </div>
 
+      <!-- Contraseña -->
       <ion-item>
-        <ion-input type="password" formControlName="password" placeholder="********" label="Contraseña:"></ion-input>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
       <div *ngFor="let val of validation_messages.password">
         <div *ngIf="registerForm.get('password')?.hasError(val.type) && registerForm.get('password')?.touched" class="error">
@@ -40,10 +57,12 @@
         </div>
       </div>
 
+      <!-- Botón de registro -->
       <ion-button expand="block" type="submit" [disabled]="!registerForm.valid" color="success">
         Registrarse
       </ion-button>
 
+      <!-- Botón para ir al login -->
       <ion-button expand="block" fill="clear" color="medium" (click)="goToLogin()">
         ¿Ya tienes cuenta? Inicia sesión
       </ion-button>

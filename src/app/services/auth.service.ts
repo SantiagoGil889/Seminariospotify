@@ -4,35 +4,61 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+  private urlServer = 'https://music.fly.dev';
 
   constructor() {}
 
-  loginUser(credentials: any) {
-    return new Promise((accept, reject) => {
-      if (
-        credentials.email === "prueba@gmail.com" &&
-        credentials.password === "prueba1234"
-      ) {
-        accept("login correcto");
-      } else {
-        reject("login incorrecto");
+  async loginUser(credentials: { email: string; password: string }) {
+    try {
+      const response = await fetch(`${this.urlServer}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user: {
+            email: credentials.email,
+            password: credentials.password
+          }
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Login fallido. Código ${response.status}: ${errorText}`);
       }
-    });
+
+      return await response.json();
+    } catch (error) {
+      throw error;
+    }
   }
 
-  registerUser(data: any): Promise<{ status: string; message: string }> {
-    return new Promise((resolve, reject) => {
-      if (data.email === 'duplicado@email.com') {
-        resolve({ status: 'error', message: 'El correo ya está registrado' });
+  async registerUser(userData: { email: string; password: string; name: string; username: string; last_name: string}) {
+    try {
+      const response = await fetch(`${this.urlServer}/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            user: {
+          email: userData.email,
+          password: userData.password,
+          name: userData.name,
+          last_name: userData.last_name
+        }
+        })
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.text();
+        throw new Error(`Registro fallido. Código ${response.status}: ${errorBody}`);
       }
 
-      if (data.email && data.password && data.nombre && data.apellido) {
-        resolve({ status: 'accept', message: 'Registro exitoso' });
-      } else {
-        resolve({ status: 'error', message: 'Datos incompletos' });
-      }
-    });
+      return await response.json();
+    } catch (err) {
+      throw err;
+    }
   }
-
-
 }

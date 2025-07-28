@@ -63,7 +63,6 @@ constructor(private storageService: StorageService, private router: Router, priv
 
   }
 
-  // intro.page.ts
 
 async continuar() {
   await this.storageService.set('introSeen', true);
