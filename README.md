@@ -1,4 +1,4 @@
-# Proyecto Reproductor de Música (PCA-Music)
+# Proyecto Reproductor de Música (PCA-Music) - Santiago Gil
 
 Este proyecto es una aplicación móvil desarrollada con **Ionic** que recrea un reproductor de música con un estilo similar a Spotify.  
 La app permite explorar listas de reproducción, reproducir canciones y gestionar una cola de reproducción.
