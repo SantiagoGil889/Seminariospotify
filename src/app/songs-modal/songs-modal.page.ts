@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavParams, IonicModule, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { compassSharp } from 'ionicons/icons';
 
 @Component({
   selector: 'app-songs-modal',
@@ -36,4 +37,13 @@ export class SongsModalPage implements OnInit {
       this.router.navigateByUrl('/menu/home');
     });
   }
+
+  async selectSong(song:any){
+    console.log("Cancion seleccionada: ", song)
+    await this.modalCtrl.dismiss(song)
+
+
+  }
+
 }
+

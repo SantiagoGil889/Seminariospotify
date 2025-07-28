@@ -61,16 +61,37 @@
   </swiper-slide>
 </swiper-container>
 
+
+
+<ion-footer >
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-start">{{ formatTime(currentSong?.currentTime) || "0:00" }}</ion-col>
+      <ion-col class="ion-text-end">{{ formatTime(getRemainingTime()) || "0:00" }}</ion-col>
+    </ion-row>
+    <ion-progress-bar [value]="newTime || 0"></ion-progress-bar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1">
+          <ion-icon name="heart"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+          <ion-text>
+            {{ song.name || "N/A" }}
+          </ion-text>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="play" *ngIf="!song.playing" (click)="play()"></ion-icon>
+          <ion-icon name="pause" *ngIf="song.playing" (click)="pause()"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-grid>
+</ion-footer>
+
+
 <div class="divboton">
   <ion-button class="tema" (click)="cambiarColor()">Cambiar Tema </ion-button>
 </div>
-
-<!-- Demo de storage -->
- <div class="temaactual">
-   <div [style.backfround-color]="colorActual"> 
-    <p>Tema Actual: {{ colorActual === colorOscuro ? 'Oscuro' : 'Claro' }}</p>
-  </div>
-</div>
-
 
 </ion-content>
