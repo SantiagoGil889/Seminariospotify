@@ -4,121 +4,141 @@
       "id": 1,
       "name": "Adán y Eva",
       "artist": "Paulo Londra",
-      "preview_url": "https://p.scdn.co/mp3-preview/paulo1.mp3"
+      "duration_ms": 210000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example1"
     },
     {
       "id": 2,
-      "name": "Nena Maldición",
+      "name": "Tal Vez",
       "artist": "Paulo Londra",
-      "preview_url": "https://p.scdn.co/mp3-preview/paulo2.mp3"
+      "duration_ms": 200000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example2"
     },
     {
       "id": 3,
-      "name": "Días Nuestros",
+      "name": "Lo mejor que hay en mi vida",
       "artist": "Andrés Cepeda",
-      "preview_url": "https://p.scdn.co/mp3-preview/cepeda1.mp3"
+      "duration_ms": 230000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example3"
     },
     {
       "id": 4,
-      "name": "Por el resto de mi vida",
+      "name": "Día tras día",
       "artist": "Andrés Cepeda",
-      "preview_url": "https://p.scdn.co/mp3-preview/cepeda2.mp3"
+      "duration_ms": 215000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example4"
     },
     {
       "id": 5,
-      "name": "Bipolar",
+      "name": "Después de Ti",
       "artist": "C.R.O",
-      "preview_url": "https://p.scdn.co/mp3-preview/cro1.mp3"
+      "duration_ms": 195000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example5"
     },
     {
       "id": 6,
-      "name": "Cuentos",
+      "name": "Money in the Bank",
       "artist": "C.R.O",
-      "preview_url": "https://p.scdn.co/mp3-preview/cro2.mp3"
+      "duration_ms": 205000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example6"
     },
     {
       "id": 7,
       "name": "A Mí",
       "artist": "Rels B",
-      "preview_url": "https://p.scdn.co/mp3-preview/relsb1.mp3"
+      "duration_ms": 240000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example7"
     },
     {
       "id": 8,
-      "name": "Cómo Dormiste?",
+      "name": "Lejos de Ti",
       "artist": "Rels B",
-      "preview_url": "https://p.scdn.co/mp3-preview/relsb2.mp3"
+      "duration_ms": 198000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example8"
     },
     {
       "id": 9,
-      "name": "Toy En El Mic",
+      "name": "Milagrosa",
       "artist": "Milo J",
-      "preview_url": "https://p.scdn.co/mp3-preview/miloj1.mp3"
+      "duration_ms": 222000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example9"
     },
     {
       "id": 10,
-      "name": "Rara Vez",
+      "name": "Toy En El Mic",
       "artist": "Milo J",
-      "preview_url": "https://p.scdn.co/mp3-preview/miloj2.mp3"
+      "duration_ms": 215000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example10"
     },
     {
       "id": 11,
-      "name": "Mírame",
+      "name": "Tus Besos",
       "artist": "3AM",
-      "preview_url": "https://p.scdn.co/mp3-preview/3am1.mp3"
+      "duration_ms": 230000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example11"
     },
     {
       "id": 12,
-      "name": "Solita",
+      "name": "Quédate",
       "artist": "3AM",
-      "preview_url": "https://p.scdn.co/mp3-preview/3am2.mp3"
+      "duration_ms": 210000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example12"
     },
     {
       "id": 13,
       "name": "A Mi Lado",
       "artist": "Dani Ribba",
-      "preview_url": "https://p.scdn.co/mp3-preview/daniribba1.mp3"
+      "duration_ms": 198000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example13"
     },
     {
       "id": 14,
-      "name": "Déjame Solo",
+      "name": "Canción del Sur",
       "artist": "Dani Ribba",
-      "preview_url": "https://p.scdn.co/mp3-preview/daniribba2.mp3"
+      "duration_ms": 218000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example14"
     },
     {
       "id": 15,
-      "name": "Mamichula",
+      "name": "Dance Crip",
       "artist": "Trueno",
-      "preview_url": "https://p.scdn.co/mp3-preview/trueno1.mp3"
+      "duration_ms": 200000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example15"
     },
     {
       "id": 16,
-      "name": "Dance Crip",
+      "name": "Solo por vos",
       "artist": "Trueno",
-      "preview_url": "https://p.scdn.co/mp3-preview/trueno2.mp3"
+      "duration_ms": 225000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example16"
     },
     {
       "id": 17,
       "name": "Mbappe",
       "artist": "Eladio Carrión",
-      "preview_url": "https://p.scdn.co/mp3-preview/eladio1.mp3"
+      "duration_ms": 220000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example17"
     },
     {
       "id": 18,
-      "name": "Tata",
+      "name": "3MEN2 KBRN",
       "artist": "Eladio Carrión",
-      "preview_url": "https://p.scdn.co/mp3-preview/eladio2.mp3"
+      "duration_ms": 210000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example18"
     },
     {
       "id": 19,
-      "name": "Calentón",
+      "name": "Memorias",
       "artist": "Mora",
-      "preview_url": "https://p.scdn.co/mp3-preview/mora1.mp3"
+      "duration_ms": 230000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example19"
     },
     {
       "id": 20,
-      "name": "Memorias",
+      "name": "La Inocente",
       "artist": "Mora",
-      "preview_url": "https://p.scdn.co/mp3-preview/mora2.mp3"
+      "duration_ms": 215000,
+      "preview_url": "https://p.scdn.co/mp3-preview/example20"
     }
   ]
 }
