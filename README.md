@@ -16,7 +16,7 @@ La app permite explorar listas de reproducción, reproducir canciones y gestiona
 - Capacitor (para la integración nativa)
 - API de ejemplo para gestión de canciones (puedes reemplazarla con tu backend)
 
-## Instalación y configuración
+## Credenciales
 
 1. Credenciales del login
 
