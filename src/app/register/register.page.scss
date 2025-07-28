@@ -12,3 +12,58 @@
   font-size: 0.85rem;
   margin: 4px 16px;
 }
+
+ion-toolbar {
+  --background: #111;
+  --color: #fff;
+  box-shadow: none;
+  border: none;
+}
+
+ion-content {
+  --background: #111;
+}
+
+ion-item {
+  --background: #1e1e1e;
+  --color: #fff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+ion-label {
+  color: #fff;
+}
+
+ion-input {
+  color: #fff;
+}
+
+ion-button[color="primary"]::part(native) {
+  background: #1e3a8a; // azul oscuro
+  color: #fff;
+}
+
+ion-button[color="success"]::part(native) {
+  background: #22c55e;
+  color: #fff;
+}
+
+.login-redirect {
+  text-align: center;
+  margin-top: 12px;
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #ccc;
+  }
+
+  ion-button {
+    margin-top: 4px;
+  }
+}
+
+.registro{
+  text-align: center;
+}

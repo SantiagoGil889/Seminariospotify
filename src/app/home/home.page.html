@@ -1,18 +1,19 @@
 <ion-header>
   <ion-toolbar>
+    <ion-title>Home</ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="cambiarColor()">
+        <ion-icon name="moon" slot="icon-only" class="theme-toggle-icon"></ion-icon>
+      </ion-button>
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-button class="intro" (click)="goIntro()">Intro </ion-button>
 
 
 <ion-content>
   <swiper-container
-  pagination="true"
   loop="true"
   slides-per-view="1"  
   [ngStyle]="{'background-color': colorActual, 'color': textoActual}"    
@@ -29,7 +30,6 @@
 <!-- Swiper de albums -->
 
 <swiper-container
-  pagination="true"
   loop="true"
   slides-per-view="3"
   [ngStyle]="{'background-color': colorActual, 'color': textoActual}">
@@ -45,7 +45,6 @@
 
 <!-- Swiper de artistas -->
 <swiper-container
-  pagination="true"
   loop="true"
   slides-per-view="3"
   [ngStyle]="{ 'background-color': colorActual, 'color': textoActual }"
@@ -87,11 +86,12 @@
       </ion-row>
     </ion-grid>
   </ion-grid>
+  
+  <div class="intro-wrapper">
+  <ion-button expand="block" class="intro" (click)="goIntro()">Acceder al intro</ion-button>
+  </div>
+
 </ion-footer>
 
-
-<div class="divboton">
-  <ion-button class="tema" (click)="cambiarColor()">Cambiar Tema </ion-button>
-</div>
 
 </ion-content>

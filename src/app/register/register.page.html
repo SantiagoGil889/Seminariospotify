@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="ion-text-center">Registro</ion-title>
+    <ion-title class="ion-text-center" class="registro">Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -58,14 +58,17 @@
       </div>
 
       <!-- Botón de registro -->
-      <ion-button expand="block" type="submit" [disabled]="!registerForm.valid" color="success">
-        Registrarse
+      <ion-button expand="block" type="submit" [disabled]="!registerForm.valid" color="primary">
+        REGISTRARSE
       </ion-button>
 
       <!-- Botón para ir al login -->
-      <ion-button expand="block" fill="clear" color="medium" (click)="goToLogin()">
-        ¿Ya tienes cuenta? Inicia sesión
-      </ion-button>
+      <div class="login-redirect">
+        <p>¿YA TIENES CUENTA?</p>
+        <ion-button expand="block" fill="solid" color="success" (click)="goToLogin()">
+          INICIA SESIÓN
+        </ion-button>
+      </div>
     </form>
   </div>
 </ion-content>

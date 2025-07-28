@@ -17,7 +17,7 @@
 .slide-content h2 {
   margin: 0;
   font-size: 29px;
-  color: #70a807
+  color: #8d8d8d
 }
 
 .slide-content p {
@@ -32,7 +32,6 @@
   color: white;
 }
 
-//Custom Properties
 
 .card{
   padding: var(--espaciado-grande);
@@ -44,7 +43,6 @@
 
 }
 
-//Fondo del boton del tema oscuro y claro
 
 .divboton {
   display: flex;
@@ -60,19 +58,23 @@
 }
 
 .tema {
-  --background: #333333;    // Fondo gris oscuro
-  --color: #ffffff;         // Texto blanco
+  --background: #333333;  
+  --color: #ffffff;          
   --border-radius: 8px;
   --padding-start: 24px;
   --padding-end: 24px;
 }
 
+.intro-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 .intro {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  --background: #000000;
-  --color: rgb(255, 255, 255);
-  --border-radius: 8px;
+  --background: #1db954;
+  --color: #ffffff;
+  --border-radius: 10px;
+  padding: 8px 20px;
+  font-size: 14px;
 }
