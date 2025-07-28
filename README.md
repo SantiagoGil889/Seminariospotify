@@ -20,5 +20,5 @@ La app permite explorar listas de reproducción, reproducir canciones y gestiona
 
 1. Credenciales del login
 
-Usuario: prueba@gmail.com  
-Contrasena: prueba1234
+Para ingresar al home del aplicativo, primero debemos redireccionarnos al register, 
+creamos el usuario, luego nos logeamos y tendremos acceso total al home
