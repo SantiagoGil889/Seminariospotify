@@ -6,7 +6,7 @@ La app permite explorar listas de reproducción, reproducir canciones y gestiona
 ## Características principales
 
 - Reproducción de canciones en streaming.
-- Interfaz inspirada en Spotify (estilo moderno y responsivo).
+- Interfaz inspirada en Spotify.
 - Listas de reproducción y buscador integrado.
 
 ## Tecnologías utilizadas
@@ -14,7 +14,7 @@ La app permite explorar listas de reproducción, reproducir canciones y gestiona
 - [Ionic Framework](https://ionicframework.com/) (Angular)
 - HTML5, CSS3 y TypeScript
 - Capacitor (para la integración nativa)
-- API de ejemplo para gestión de canciones (puedes reemplazarla con tu backend)
+- API de ejemplo para gestión de canciones 
 
 ## Credenciales
 
